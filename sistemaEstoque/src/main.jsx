@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { createRoot } from 'react-dom/client' 
 import App from './App.jsx'
 
 // Importanto os métodos para criar as rotas
@@ -8,6 +7,7 @@ import { createBrowserRouter , RouterProvider} from 'react-router-dom';
 import ErrorPage from './routes/ErrorPage.jsx';
 import Home from './routes/Home.jsx'
 import listProducts from './routes/listProducts.jsx';
+import productDescription from './routes/productDescription.jsx';
 
 // Criando as rotas
 
@@ -24,6 +24,10 @@ const routes = createBrowserRouter([
       {
         path: "/listProducts",
         element: <listProducts />
+      },
+      {
+        path: "/listProducts/:id",
+        element : <productDescription />
       }
     ],
   },
@@ -33,6 +37,6 @@ const routes = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={routes} />
   </StrictMode>,
 )
